@@ -1,0 +1,11 @@
+com/team2/workflowmanagement/controller/UserController.class
+com/team2/workflowmanagement/model/Role.class
+com/team2/workflowmanagement/model/User.class
+com/team2/workflowmanagement/Config/AuthorizationServerConfig.class
+com/technovate/wms/Config/ResourceServerConfig.class
+com/team2/workflowmanagement/dao/UserDaoImpl.class
+com/team2/workflowmanagement/Config/CustomUserDetails.class
+com/team2/workflowmanagement/service/UserService.class
+com/team2/workflowmanagement/dao/UserDao.class
+com/technovate/wms/Config/CorsFilter.class
+com/team2/workflowmanagement/dao/UserDaoImpl$1.class
