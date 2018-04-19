@@ -1,5 +1,6 @@
 package com.boraji.tutorial.spring.config;
 
+import com.boraji.tutorial.spring.dao.UserDao;
 import java.util.Properties;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,12 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import static org.hibernate.cfg.Environment.*;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @PropertySource("classpath:db.properties")
@@ -21,6 +28,8 @@ import static org.hibernate.cfg.Environment.*;
       @ComponentScan("com.boraji.tutorial.spring.service") })
 public class AppConfig {
 
+    PasswordEncoder encoder = new BCryptPasswordEncoder();
+    
    @Autowired
    private Environment env;
 
@@ -59,4 +68,14 @@ public class AppConfig {
       transactionManager.setSessionFactory(getSessionFactory().getObject());
       return transactionManager;
    }
+   
+//   @Bean
+//   public void authenticationManager(AuthenticationManagerBuilder builder, UserDao repository) throws Exception {
+//		builder.userDetailsService(new UserDetailsService() {
+//			@Override
+//			public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+//				return new CustomUserDetails(repository.findByEmail(s));
+//			}
+//		}).passwordEncoder(encoder);
+//	}
 }

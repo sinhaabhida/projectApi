@@ -3,6 +3,7 @@ package com.boraji.tutorial.spring.model;
 import javax.persistence.*;
 import java.util.List;
 import org.hibernate.annotations.Cascade;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
 @Table(name = "user")
@@ -69,7 +70,9 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        BCryptPasswordEncoder b =new BCryptPasswordEncoder();
+        String pass = b.encode(password);
+        this.password = pass;
     }
 
     public String getFirstName() {
