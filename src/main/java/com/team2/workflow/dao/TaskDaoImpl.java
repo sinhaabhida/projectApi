@@ -6,6 +6,7 @@
 package com.team2.workflow.dao;
 
 import com.team2.workflow.model.Task;
+import com.team2.workflow.model.Task.Status;
 import com.team2.workflow.model.User;
 import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -75,7 +76,7 @@ public class TaskDaoImpl implements TaskDao{
 
     @Override
     public List<Task> getListOfAssignedTaskFor(long userId) {
-        String hql = "FROM Task T WHERE T.asignee="+userId+"";
+        String hql = "FROM Task T WHERE T.asignee="+userId+"AND T.status="+Status.valueOf("InProgress")+"";
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery(hql);
         List<Task> tasks = query.list();
