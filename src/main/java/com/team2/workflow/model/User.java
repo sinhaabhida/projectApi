@@ -1,5 +1,6 @@
 package com.team2.workflow.model;
 
+import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
 import org.hibernate.annotations.Cascade;
@@ -7,7 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue

@@ -5,11 +5,12 @@
  */
 package com.team2.workflow.model;
 
+import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
 @Table(name = "job_category")
-public class JobCategory {
+public class JobCategory implements Serializable {
 
     @Id
     @GeneratedValue
@@ -20,7 +21,7 @@ public class JobCategory {
     @Column(name = "category_description",nullable = false)
     private String categoryDescription;
     @Column(name = "status")
-    private String status;
+    private boolean status;
 
     public long getId() {
         return id;
@@ -46,11 +47,11 @@ public class JobCategory {
         this.categoryDescription = categoryDescription;
     }
 
-    public String getStatus() {
+    public boolean getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 }

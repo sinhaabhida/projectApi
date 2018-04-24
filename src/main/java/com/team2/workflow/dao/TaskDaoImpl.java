@@ -60,7 +60,7 @@ public class TaskDaoImpl implements TaskDao{
 
     @Override
     public List<Task> getAllTask() {
-         Session session = sessionFactory.getCurrentSession();
+      Session session = sessionFactory.getCurrentSession();
       CriteriaBuilder cb = session.getCriteriaBuilder();
       CriteriaQuery<Task> cq = cb.createQuery(Task.class);
       Root<Task> root = cq.from(Task.class);

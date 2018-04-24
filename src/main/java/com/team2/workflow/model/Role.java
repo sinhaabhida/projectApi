@@ -1,10 +1,11 @@
 package com.team2.workflow.model;
 
+import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
 @Table(name = "role")
-public class Role {
+public class Role implements Serializable {
 
     @Id
     @GeneratedValue

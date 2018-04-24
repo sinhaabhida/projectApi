@@ -5,6 +5,7 @@
  */
 package com.team2.workflow.model;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,7 +21,7 @@ import org.hibernate.annotations.Cascade;
  */
 @Entity
 @Table(name = "task")
-public class Task {
+public class Task implements Serializable {
 
     public enum Status {
         InProgress, Resolved, Closed
