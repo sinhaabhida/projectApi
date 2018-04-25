@@ -30,7 +30,7 @@ public class JobOpeningController {
      @PostMapping("/create")
     public ResponseEntity<?> createJob(@RequestBody JobOpening jobOpening) {
         long id = jobService.jobCreation(jobOpening);
-        return ResponseEntity.ok().body("New Jo Opening has been Created with ID:" + id);
+        return ResponseEntity.ok().body("New Job Opening has been Created with ID:" + id);
     }
 
     @PostMapping("/delete/{id}")
@@ -48,6 +48,6 @@ public class JobOpeningController {
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") long id, @RequestBody JobOpening jobOpening) {
         jobService.jobUpdation(id, jobOpening);
-        return ResponseEntity.ok().body("Job Ope has been updated successfully.");
+        return ResponseEntity.ok().body("Job Opening has been updated successfully.");
     }
 }

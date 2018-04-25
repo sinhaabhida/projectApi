@@ -5,6 +5,7 @@
  */
 package com.team2.workflow.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
@@ -99,5 +100,5 @@ public class JobOpening implements Serializable {
     public void setJobCategory(JobCategory jobCategory) {
         this.jobcategory = jobCategory;
     }
-    
+
 }

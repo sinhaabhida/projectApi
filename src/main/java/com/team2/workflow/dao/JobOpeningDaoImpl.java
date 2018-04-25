@@ -74,10 +74,11 @@ public class JobOpeningDaoImpl implements JobOpeningDao {
 
     @Override
     public List<JobOpening> getAllOpenings() {
-        LocalDate date = java.time.LocalDate.now();
-        String hql = "FROM JobOpening j WHERE j.jobClosingDate>=" + date + "AND j.status=" + true + "";
+        Date date =new Date();
+        String hql = "FROM JobOpening j WHERE j.jobClosingDate >= :date AND j.status=" + true + "";
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery(hql);
+        query.setDate("date", date);
         List<JobOpening> openings = query.list();
         return openings;
     }
