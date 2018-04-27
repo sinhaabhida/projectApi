@@ -83,4 +83,13 @@ public class JobOpeningDaoImpl implements JobOpeningDao {
         return openings;
     }
 
+    @Override
+    public List<JobOpening> getOpeningByCategory(long catId) {
+        String hql = "FROM JobOpening j WHERE j.jobcategory="+catId;
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery(hql);
+        List<JobOpening> openings = query.list();
+        return openings;
+    }
+
 }

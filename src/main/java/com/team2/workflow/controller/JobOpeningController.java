@@ -44,10 +44,18 @@ public class JobOpeningController {
         List<JobOpening> openings = jobService.getJobList();
         return ResponseEntity.ok().body(openings);
     }
+    
+    @GetMapping("/get/{id}")
+    public ResponseEntity<List<JobOpening>> openingsByCategory(@PathVariable("id") long id) {
+        List<JobOpening> openings = jobService.getJobListByCategory(id);
+        return ResponseEntity.ok().body(openings);
+    }
 
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") long id, @RequestBody JobOpening jobOpening) {
         jobService.jobUpdation(id, jobOpening);
         return ResponseEntity.ok().body("Job Opening has been updated successfully.");
     }
+    
+    
 }

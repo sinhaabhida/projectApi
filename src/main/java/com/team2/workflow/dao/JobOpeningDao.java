@@ -21,4 +21,6 @@ public interface JobOpeningDao {
     public void deleteOpening(long openId);
     
     public List<JobOpening> getAllOpenings();
+    
+    public List<JobOpening> getOpeningByCategory(long catId);
 }

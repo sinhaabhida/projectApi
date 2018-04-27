@@ -43,4 +43,9 @@ public class JobOpeningService {
     public List<JobOpening> getJobList() {
         return jobOpeningDaoImpl.getAllOpenings();
     }
+    
+     @Transactional
+    public List<JobOpening> getJobListByCategory(long catId) {
+        return jobOpeningDaoImpl.getOpeningByCategory(catId);
+    }
 }

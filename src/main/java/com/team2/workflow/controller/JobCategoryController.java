@@ -52,4 +52,5 @@ public class JobCategoryController {
         categoryService.categoryUpdation(id, jobCategory);
         return ResponseEntity.ok().body("User has been updated successfully.");
     }
+    
 }
